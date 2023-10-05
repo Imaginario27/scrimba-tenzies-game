@@ -257,8 +257,6 @@ form input.empty-warning {
 }
 .scoreboard-results .row:first-child{
     border-top:none;
-    font-weight:700;
-    color: var(--scoreboardButtonColor)
 }
 .scoreboard-results .ranking {
     width:50px;
