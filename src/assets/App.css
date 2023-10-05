@@ -1,0 +1,350 @@
+:root {
+    --backgroundColor: #0B2434;
+    --containerBgColor: #F5F5F5;
+    --buttonColor: #5035FF;
+    --buttonHoverColor: #3824b5;
+    --stopButtonColor: #ff3549;
+    --stopButtonHoverColor: #c92838;
+    --scoreboardButtonColor: #ff7835;
+    --scoreboardButtonHoverColor: #d1632c;
+    --dieHoverColor: #f5f5f5;
+    --dieHeldColor: #59E391;
+    --dieHeldHoverColor: #49bf79;
+    --mainTextColor: #2B283A;
+    --descriptionColor: #4A4E74;
+}
+
+* {
+    box-sizing: border-box;
+    transition: all 100ms ease-in-out;
+}
+
+body,html {
+    margin: 0;
+    background: var(--containerBgColor);
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height:100%;
+}
+
+body {
+    font-family: 'Karla', sans-serif;
+    color: var(--mainTextColor);
+}
+
+#container {
+    background:var(--containerBgColor);
+    width: 100%;
+    margin: 0 auto;
+    padding: 2.19em;
+    text-align:center;
+}
+
+#logo {
+    width:100px
+}
+
+h1 {
+    font-size: 2rem;
+}
+
+h1, h2, h3 {
+    margin:0
+}
+
+h3 {
+   font-weight:800; 
+   margin: 1em 0 .5em;
+   
+}
+
+#description {
+    font-family: 'Inter', sans-serif;
+    font-size: .85rem;
+    color:var(--descriptionColor);
+    max-width:400px;
+    margin: 1em auto;
+}
+
+#counter-container {
+    background:white;
+    margin: 0 auto;
+    padding: .8em 1.6em;
+    border: 1px solid var(--buttonColor);
+    width:100%;
+    text-align:left;
+    color: var(--buttonColor);
+    border-radius:5px;
+    display:flex;
+    justify-content: space-between;
+    font-size:1.2em;
+}
+
+button {
+    background: var(--buttonColor);
+    font-size:1.2rem;
+    font-weight:700;
+    color:white;
+    border:none;
+    padding: .7em 1.2em;
+    border-radius: 4px;
+}
+button:hover {
+    background: var(--buttonHoverColor)
+}
+
+#btn-container {
+    display:flex;
+    flex-direction: column;
+    gap:1em;
+    align-items: center;
+    margin-top:2em;
+}
+
+#scoreboard-btn {
+    font-size:1em;
+    background: var(--scoreboardButtonColor)
+}
+#scoreboard-btn:hover {
+    background: var(--scoreboardButtonHoverColor)
+}
+
+#stop-reset-btn {
+    font-size: 1em;
+    background: var(--stopButtonColor)
+}
+
+#stop-reset-btn:hover {
+    background: var(--stopButtonHoverColor)
+}
+
+form input {
+    font-family: 'Inter', sans-serif;
+    font-size:1.2rem;
+    font-weight:700;
+    text-align:center;
+    margin-top:.5em;
+    padding:.5em;
+    color:var(--mainTextColor);
+    border:2px solid var(--buttonColor);
+    border-radius:5px;
+    width:100%;
+}
+form input:focus,
+form input:hover {
+    border:2px solid var(--buttonHoverColor);
+}
+
+form input.empty-warning {
+    border:2px solid red;
+}
+
+#dice-container {
+    display: flex;
+    flex-wrap:wrap;
+    justify-content: center;
+    gap: 10px;
+    padding: 1.5em 0 1.5em ;
+}
+
+.die {
+    width: 50px;
+    height: 50px;
+    background: white;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    border-radius:4px;
+    font-weight:700;
+    font-size: 2rem;
+}
+
+.die:hover{
+    background: var(--dieHoverColor);
+}
+
+.die, button{
+    box-shadow: 0 3px 5px rgba(0,0,0,0.2);
+}
+
+.die.held {
+    background: var(--dieHeldColor);
+}
+.die.held:hover {
+    background: var(--dieHeldHoverColor)
+}
+.die:hover, button:hover{
+    cursor:pointer;
+}
+
+/* Dice faces */
+.die-interior {
+    width:100%;
+    height:100%;
+    padding:10px;
+}
+.die-interior .dot{
+    display: block;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background:var(--mainTextColor);
+}
+
+.first-face .die-interior{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.second-face .die-interior{
+    display: flex ;
+    justify-content: space-between;
+}
+.second-face .die-interior .dot:nth-of-type(2) {
+    align-self: flex-end;
+}
+
+.third-face .die-interior {
+    display: flex;
+    justify-content: space-between;
+}
+.third-face .die-interior .dot:nth-of-type(1) {
+    align-self :flex-end;
+}
+.third-face .die-interior .dot:nth-of-type(2) {
+    align-self :center;
+}
+
+.fourth-face .die-interior, .sixth-face .die-interior, .fifth-face .die-interior{
+    display: flex;
+    justify-content: space-between;
+}
+.fourth-face .die-interior .die-column , .sixth-face .die-interior .die-column, .fifth-face .die-interior .die-column{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.fifth-face .die-interior .die-column:nth-of-type(2) {
+    justify-content: center;
+}
+
+/* SCOREBOARD */
+#scoreboard {
+   border:2px solid var(--scoreboardButtonColor);
+   border-radius: 10px;
+   padding:1em;
+}
+
+#scoreboard h1 {
+    font-size:2rem;
+}
+
+.scoreboard-results {
+    font-family: 'Inter', sans-serif;
+    margin-bottom:1.5em;
+    font-size: 1rem;
+}
+.scoreboard-results .row {
+    border-top: 1px dotted;
+    display:flex;
+    text-align: left;
+    padding:.5em;
+}
+.scoreboard-results .row:first-child{
+    border-top:none;
+    font-weight:700;
+    color: var(--scoreboardButtonColor)
+}
+.scoreboard-results .ranking {
+    width:50px;
+}
+.scoreboard-results .player {
+    width:100px;
+}
+.scoreboard-results .rolls,
+.scoreboard-results .time {
+    width:60%;
+    text-align: right;
+}
+
+#back-btn {
+    font-size:1em;
+}
+
+/**************************
+    Mediaqueries
+**************************/
+
+@media (min-width:320px) {
+    #scoreboard {
+        min-width:320px;
+    }
+}
+
+@media (min-width:400px) {
+    #scoreboard {
+        min-width:400px;
+    }
+}
+
+@media (min-width:480px) {
+    #scoreboard {
+        min-width:480px;
+    }
+}
+
+@media (min-width:580px) {
+    #container {
+        width: 550px;
+        border-radius:10px;
+    }
+    body,html {
+        background: var(--backgroundColor);
+    }
+    .die-interior {
+        padding:10px;
+    }
+    .die-interior .dot{
+        width: 12px;
+        height: 12px;
+    }
+    .die {
+        width: 80px;
+        height: 80px;
+    }
+    #dice-container {
+        display: grid;
+        grid-template: auto auto / repeat(5, 1fr);
+        gap: 20px;
+    }
+    #counter-container {
+        margin: 0 auto;
+        width:400px;
+        font-size:1.5em;
+    }
+    button {
+        font-size:1.5rem;
+    }
+    #description {
+        font-size: 1rem;
+    }
+    form input {
+        width:auto;
+    }
+    h1 {
+        font-size: 3rem;
+    }
+    .scoreboard-results .player {
+        width:200px;
+    }
+    .scoreboard-results {
+        font-size: 1.3rem;
+    }
+    #logo {
+        width:150px
+    }
+}
