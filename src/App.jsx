@@ -198,7 +198,6 @@ export default function App() {
         Saves the time and rolls of the player game in localhost and sorts it based on
         time and rolls
     */
-    // Function to save player score to local storage
     function savePlayerScore(playerName, rolls, time) {
         const newScore = {
             playerName,
